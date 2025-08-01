@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+    <h2>Home Page</h2>
+
+    <ul>
+        {% for i in sakshi %} <!--#jinja tag --used to write the logic-->
+        <li>
+            id: {{ i.id }}  <br><!--variable DTL tag-- -- used to write the values -->
+            
+            Name: {{ i.name | upper}} -
+            Location: {{ i.loc | upper }} <br>
+            Description: {{i.desc | truncatewords:5}}
+            <br>
+            <button>
+                <a href="{% url 'read' i.id %}">Read More...</a>
+            </button>
+        </li>
+    {% endfor %}
+    </ul>   
+
+
+{% endblock %}
